@@ -1,0 +1,30 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<div class="m-3">
+    <h1 class="display-3">Nuestros teclados son:</h1>
+    <a class="btn btn-info" href="{% url 'TecladoCreate' %}"> <i class="fa fa-plus fa-lg" title = "Crear"> </i> </a>
+    <a class="btn btn-info" href="{% url 'buscarTeclados' %}" ><i class="fa-solid fa-magnifying-glass"></i></a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for teclado in teclado_list %}
+
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{teclado.modelo}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ teclado.marca }}</h6>
+                <p class="card-text">{{ teclado.descripcion }}</p>
+                <p class="card-text">Unidades en stock: {{ teclado.stock }}</p>
+                <p class="card-text">{{ teclado.precio }} USD</p>
+                <p class="card-text">ID: {{ teclado.id }}</p>
+                <a href="{% url 'actualizarTeclado' teclado.id %}" class="btn btn-primary">editar</a>
+                <a href="{% url 'deleteTeclado' teclado.id %}" class="btn btn-danger">eliminar</a>
+            </div>
+        </div>
+    </div>
+    
+
+    {% endfor %}
+</div>
+{% endblock contenido %}

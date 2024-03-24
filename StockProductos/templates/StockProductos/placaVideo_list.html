@@ -1,0 +1,30 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<div class="m-3">
+    <h1 class="display-3">Nuestras placas de video son:</h1>
+    <a class="btn btn-info" href="{% url 'PlacaVideoCreate' %}"> <i class="fa fa-plus fa-lg" title = "Crear"> </i> </a>
+    <a class="btn btn-info" href="{% url 'buscarPlacasVideo' %}" ><i class="fa-solid fa-magnifying-glass"></i></a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for placaVideo in placavideo_list %}
+
+    <div class="col">
+        <div class="card" style="width: 18rem; color bg-dark">
+            <div class="card-body">
+                <h5 class="card-title">{{placaVideo.modelo}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ placaVideo.marca }}</h6>
+                <p class="card-text">{{ placaVideo.descripcion }}</p>
+                <p class="card-text">Unidades en stock: {{ placaVideo.stock }}</p>
+                <p class="card-text">{{ placaVideo.precio }} USD</p>
+                <p class="card-text"> ID: {{ placaVideo.id }}</p>
+                <a href="{% url 'actualizarPlacaVideo' placaVideo.id %}" class="btn btn-primary">editar</a></a>
+                <a href="{% url 'deletePlacaVideo' placaVideo.id %}" class="btn btn-danger">eliminar</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock contenido %}
+

@@ -1,0 +1,14 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<h1 class="display-3">Nueva placa de video</h1>
+<form action="" method="post" class="m-3">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button class="btn btn-info" type="submit">Agregar</button>
+    <a class="btn btn-danger" href="{% url 'placaVideo' %}" role="button">Cancelar</a>
+</form>
+
+{% endblock contenido %}

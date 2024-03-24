@@ -1,0 +1,30 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<div class="m-3">
+    <h1 class="display-3">Nuestros procesadores son:</h1>
+    <a class="btn btn-info" href="{% url 'ProcesadorCreate' %}"> <i class="fa fa-plus fa-lg" title = "Crear"> </i> </a>
+    <a class="btn btn-info" href="{% url 'buscarProcesadores' %}" ><i class="fa-solid fa-magnifying-glass"></i></a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for procesador in procesador_list %}
+
+    <div class="col">
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{procesador.modelo}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ procesador.marca }}</h6>
+                <p class="card-text">{{ procesador.descripcion }}</p>
+                <p class="card-text">Unidades en stock: {{ procesador.stock }}</p>
+                <p class="card-text">{{ procesador.precio }} USD</p>
+                <p class="card-text"> ID: {{ procesador.id }}</p>
+                <a href="{% url 'actualizarProcesador' procesador.id %}" class="btn btn-primary">editar</a></a>
+                <a href="{% url 'deleteProcesador' procesador.id %}" class="btn btn-danger">eliminar</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock contenido %}

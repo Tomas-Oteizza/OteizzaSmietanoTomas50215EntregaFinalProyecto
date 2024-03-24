@@ -1,0 +1,10 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido %}
+<h1 class="display-3">Busqueda de procesadores</h1>
+<form action="{% url 'encontrarProcesadores' %}" method="GET">
+    {% csrf_token %}
+    <p>Ingrese el modelo de procesador a buscar: <input type="text" name="buscarProcesadores" id="buscarProcesadores"></p>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}

@@ -1,0 +1,13 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido %}
+<h1 class="display-3">Login</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock contenido %}

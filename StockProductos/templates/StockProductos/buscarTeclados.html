@@ -1,0 +1,13 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido %}
+<h1 class="display-3">Busqueda de teclados</h1>
+<form action="{% url 'encontrarTeclados' %}" method="GET">
+    {% csrf_token %}
+    <p>Ingrese el modelo de teclado a buscar: <input type="text" name="buscarTeclado" id="buscarTeclado"></p>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}
+
+
+

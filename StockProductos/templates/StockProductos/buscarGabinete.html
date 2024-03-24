@@ -1,0 +1,10 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido %}
+<h1 class="display-3">Busqueda de gabinetes</h1>
+<form action="{% url 'encontrarGabinete' %}" method="GET">
+    {% csrf_token %}
+    <p>Ingrese el modelo de gabinete a buscar: <input type="text" name="buscarGabinete" id="buscarGabinete"></p>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}

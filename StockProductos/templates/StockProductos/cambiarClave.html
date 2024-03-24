@@ -1,0 +1,14 @@
+{% extends "StockProductos/index.html" %}
+
+
+{% block contenido %}
+<h1 class="display-3">Cambiar clave de ingreso</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Cambiar">
+</form>
+
+{% endblock contenido %}

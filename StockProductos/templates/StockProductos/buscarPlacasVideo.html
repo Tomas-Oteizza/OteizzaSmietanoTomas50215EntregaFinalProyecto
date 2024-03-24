@@ -1,0 +1,10 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido %}
+<h1 class="display-3">Busqueda de placas de video</h1>
+<form action="{% url 'encontrarPlacasVideo' %}" method="GET">
+    {% csrf_token %}
+    <p>Ingrese el modelo de placa de video a buscar: <input type="text" name="buscarPlacasVideo" id="buscarPlacasVideo"></p>
+    <input type="submit" value="Buscar">
+</form>
+{% endblock contenido %}

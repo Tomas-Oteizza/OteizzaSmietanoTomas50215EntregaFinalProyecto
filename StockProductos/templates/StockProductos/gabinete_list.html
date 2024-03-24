@@ -1,0 +1,29 @@
+{% extends "StockProductos/index.html" %}
+
+{% block contenido  %}
+<div class="m-3">
+    <h1 class="display-3">Nuestros gabinetes son:</h1>
+    <a class="btn btn-info" href="{% url 'GabineteCreate' %}"> <i class="fa fa-plus fa-lg" title = "Crear"> </i> </a>
+    <a class="btn btn-info" href="{% url 'buscarGabinete' %}" ><i class="fa-solid fa-magnifying-glass"></i></a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for gabinete in gabinete_list %}
+
+    <div class="col">
+        <div class="card" style="width: 18rem; color bg-dark">
+            <div class="card-body">
+                <h5 class="card-title">{{gabinete.modelo}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ gabinete.marca }}</h6>
+                <p class="card-text">{{ gabinete.descripcion }}</p>
+                <p class="card-text">Unidades en stock: {{ gabinete.stock }}</p>
+                <p class="card-text">{{ gabinete.precio }} USD</p>
+                <p class="card-text"> ID: {{ gabinete.id }}</p>
+                <a href="{% url 'actualizarGabinete' gabinete.id %}" class="btn btn-primary">editar</a></a>
+                <a href="{% url 'deleteGabinete' gabinete.id %}" class="btn btn-danger">eliminar</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock contenido %}
